@@ -41,3 +41,39 @@ ipython kernel install --user --name=keras
 jupyter notebook
 # Kernel > Change kernel > keras
 ```
+
+#### Basics:
+**Strings:**
+```python
+name[1:len(name)]   
+len(name),          
+name.upper()
+str(age)            
+int(age)            
+print("Name: %s, Lastname: %s" % (name, lastName))
+```
+**Dates:**
+```python
+from datetime import datetime
+now = datetime.now()
+print '%s/%s/%s’ % (now.year, now.month, now.day,)
+```
+**Lists:**
+```python
+names = list() # names = []
+name = names[2:3]
+names.append()
+names.index(x)
+names.insert(x,y)
+names.sort()
+names.remove()
+for name in names: 
+    pass
+```
+
+**Dicrtionaries:**
+```python
+dict = {‘A’ : 10, ‘B‘: 15, ‘C’ : 20}
+dict(‘A’) = 10
+del dict[‘B’]
+```
