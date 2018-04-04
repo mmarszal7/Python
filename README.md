@@ -42,7 +42,7 @@ jupyter notebook
 # Kernel > Change kernel > keras
 ```
 
-#### Basics:
+## Basics:
 **Strings:**
 ```python
 name[1:len(name)]   
