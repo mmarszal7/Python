@@ -2,6 +2,7 @@
 #### Some pip/conda commands:
 **yolk3k** - Package containing command-line tool for quering about pip package informations like version, authors etc.
 - pip -h 
+- pip freeze > requirements.txt
 - pip install requirements.txt
 - conda env list
 - conda env remove -n envName
