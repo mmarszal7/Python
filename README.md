@@ -6,6 +6,8 @@
 - pip install requirements.txt
 - conda env list
 - conda env remove -n envName
+- conda env export --file environment.yml
+- conda env create -f environment.yml
 - yolk -V django 
 
 #### Code/project structure:
