@@ -17,8 +17,10 @@ def getExtensionList(folderPath):
 		for file in filenames:
 			file_extension = os.path.splitext(file)[-1]
 			extensions.append(file_extension)
-	
-	return [ExtensionInfo(ext) for ext in list(set(extensions))]
+			
+	extList = list(set(extensions))
+	extList.sort()
+	return [ExtensionInfo(ext) for ext in extList]
 	
 def chooseExtensions(extensions):
 	print('Pick from avaiable extensions:')
@@ -57,8 +59,9 @@ def calculateLinesPerExtension(projectPath, pickedExtensions):
 					lines = sum(1 for line in open(os.path.join(dirpath, file)))
 					pickedExtensions[extensions.index(file_extension)].numberOfLines += lines
 			except UnicodeDecodeError:
-				pass
-				#print('Could not compute lines of file: ' + os.path.join(dirpath, file))
+				print('Could not compute lines of file: ' + os.path.join(dirpath, file))
+			except PermissionError:
+				print('Permission error on file: ' + os.path.join(dirpath, file))
 	
 	printLinesPerExtension(pickedExtensions)
 				
