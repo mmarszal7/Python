@@ -10,7 +10,8 @@ sizeY = 1000
 
 class Area():
 	
-	def __init__(self, source, numberOfBlocks = 5):
+	def __init__(self, source = '', numberOfBlocks = 5):
+		self.numberOfBlocks = numberOfBlocks;
 		if (source == 'file'):
 			self.recoverAreaFromFile()
 		else:
@@ -31,7 +32,6 @@ class Area():
 		self.cords = self.drawCords()
 		self.sizes = self.drawSizes()
 		self.distances = self.calculateDistances()
-		self.numberOfBlocks = len(self.sizes);
 
 	def drawCords(self):
 		cords = np.empty([self.numberOfBlocks,2])

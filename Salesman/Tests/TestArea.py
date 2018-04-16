@@ -1,27 +1,29 @@
+import sys 
+sys.path.append('..')
 import unittest
 import numpy as np
-import area
+from area import Area
 import time as timeasure
 
 class TestArea(unittest.TestCase):
 
-	def test_area_arraySizes(self):
-		newArea = area.Area(ga.numberOfBlocks)
+	def test_area_size(self):
+		area = Area('draw', 10)
 		
-		self.assertEqual(newArea.cords.shape[1], 2)
-		self.assertEqual(newArea.cords.shape, (ga.numberOfBlocks,2))
-		self.assertEqual(newArea.sizes.shape, (ga.numberOfBlocks,))
+		self.assertEqual(area.numberOfBlocks, 10)
+		self.assertEqual(area.cords.shape, (10,2))
+		self.assertEqual(area.sizes.shape, (10,))
+		self.assertEqual(area.distances.shape, (10,10))
 
 	def test_area_calculateDistances(self):
-		newArea = area.Area(ga.numberOfBlocks)
-		newArea.cords = np.array([[1, 1],[1, 5]])
-
-		start = timeasure.time()
-		newArea.distances = area.calculateDistances(ga.numberOfBlocks, newArea.cords)
-		end = timeasure.time()
-		print('calculateDistances: {}s'.format(end - start))
-
-		self.assertEqual(newArea.distances[0,1], 4.0 )
+		area = Area(5)
+		area.saveArea()
+		testArea = Area('file')
+		
+		self.assertEqual(testArea.numberOfBlocks, 5)
+		self.assertEqual(testArea.cords.shape, (5,2))
+		self.assertEqual(testArea.sizes.shape, (5,))
+		self.assertEqual(testArea.distances.shape, (5,5))
 
 if __name__ == '__main__':
 	try:

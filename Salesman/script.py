@@ -14,6 +14,7 @@ progress 		:int = 50
 
 if __name__ == '__main__':
 	area = Area('file')
+	#area = Area('draw', 10)
 	ga = GeneticAlgorithm(area, populationSize, mutationPercent,
 							successionRate, diversityRate, time, solution, 
 							secondStage, progress)
