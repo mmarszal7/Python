@@ -45,6 +45,15 @@ jupyter notebook
 # Kernel > Change kernel > keras
 ```
 
+## Django:
+**Installation:**
+``` python
+conda install -c anaconda django
+python -m django --version
+django-admin startproject mysite
+python manage.py runserver
+```
+
 ## Basics:
 **Strings:**
 ```python
