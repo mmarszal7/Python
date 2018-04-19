@@ -4,6 +4,7 @@
 - pip -h 
 - pip freeze > requirements.txt
 - pip install requirements.txt
+- conda create -n django python=3.6
 - conda env list
 - conda env remove -n envName
 - conda env export --file environment.yml
@@ -46,11 +47,24 @@ jupyter notebook
 ```
 
 ## Django:
+<<<<<<< HEAD
+**Installation and first run:**
+``` python
+conda install -c anaconda django # pip install Django
+python -m django --version
+
+django-admin startproject mysite
+django-admin.py startapp api
+
+python manage.py migrate
+python manage.py createsuperuser --email admin@example.com --username admin
+=======
 **Installation:**
 ``` python
 conda install -c anaconda django
 python -m django --version
 django-admin startproject mysite
+>>>>>>> 1e9230fa095fac374eff38daf0338f74cf03c108
 python manage.py runserver
 ```
 
