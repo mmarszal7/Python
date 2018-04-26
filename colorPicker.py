@@ -27,8 +27,6 @@ class MyGUI:
 		
         self.pick_button = Button(root, text="Pick color", command=self.get_pixel)
         self.pick_button.grid(row=2, column=0)
-        #self.close_button = Button(root, text="Close", command=root.quit)
-		#self.close_button.grid()
 		
     def get_pixel(self):
         # '0x01' is code for left mouse button

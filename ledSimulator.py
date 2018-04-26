@@ -1,5 +1,4 @@
 '''
-Program for testing LEDs lightning with bitwise operations.
 Bitwise operations:
 	a) bit shifting: <<, >>
 	b) logic: &, |, ~, ^(XOR)
