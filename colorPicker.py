@@ -13,6 +13,7 @@ class MyGUI:
         root.title("Color picker")
         root.resizable(False,False)
         root.geometry("250x80")
+        root.attributes("-topmost", True)
 
         self.label = Label(root, text="Color rgb:", width=15).grid(row=0, column=0)
         self.labelRGB = Label(root, text="#")
