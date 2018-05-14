@@ -50,14 +50,14 @@ def chooseExtensions(extensions):
 	return extensions
 	
 def calculateLinesPerExtension(projectPath, pickedExtensions):
-	extensions = [ext.name for ext in pickedExtensions]
+	extensionsToCheck = [ext.name for ext in pickedExtensions if ext.picked]
 	for dirpath,dirnames,filenames in os.walk(projectPath):
 		for file in filenames:
 			file_extension = os.path.splitext(file)[-1]
 			try:
-				if(file_extension in extensions):
+				if(file_extension in extensionsToCheck):
 					lines = sum(1 for line in open(os.path.join(dirpath, file)))
-					pickedExtensions[extensions.index(file_extension)].numberOfLines += lines
+					next((x for x in pickedExtensions if x.name == file_extension), None).numberOfLines += lines
 			except UnicodeDecodeError:
 				print('Could not compute lines of file: ' + os.path.join(dirpath, file))
 			except PermissionError:
