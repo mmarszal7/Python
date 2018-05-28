@@ -12,7 +12,9 @@ class MyGUI:
         self.root = root
         root.title("Lyrics")
         root.resizable(False,False)
+        root.geometry('+%d+%d' % (root.winfo_screenwidth()-300, 30))
         root.attributes("-topmost", True)
+        root.attributes("-alpha", 0.5)
 		
         self.label = Label(root, text="Artics: ", width=15).grid(row=0, column=0)
         self.label = Label(root, text="Song :", width=15).grid(row=1, column=0)
