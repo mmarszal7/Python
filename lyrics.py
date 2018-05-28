@@ -3,6 +3,7 @@ import win32gui
 import PIL.ImageGrab
 from win32api import GetKeyState, GetAsyncKeyState
 import time
+import geniusAPI
 
 from musixmatch import Musixmatch
 musixmatch = Musixmatch('ba0fb43d46a01bba9cb74907c46620f6')
@@ -14,7 +15,7 @@ class MyGUI:
         root.resizable(False,False)
         root.geometry('+%d+%d' % (root.winfo_screenwidth()-300, 30))
         root.attributes("-topmost", True)
-        root.attributes("-alpha", 0.5)
+        root.attributes("-alpha", 0.8)
 		
         self.label = Label(root, text="Artics: ", width=15).grid(row=0, column=0)
         self.label = Label(root, text="Song :", width=15).grid(row=1, column=0)
@@ -37,7 +38,8 @@ class MyGUI:
         self.downloadButton.grid(row=2, columnspan=2)
 		
     def getLyrics(self, key=''):
-        self.lyrics['text'] = downloadLyrics(self.artist.get(), self.song.get())
+        #self.lyrics['text'] = downloadLyrics(self.artist.get(), self.song.get())
+        self.lyrics['text'] = geniusAPI.downloadLyrics(self.artist.get(), self.song.get())
 
 def downloadLyrics(artist, song):
     print('Artist: ' + artist + "; Song: " + song)
