@@ -1,7 +1,6 @@
 from tkinter import *
 import win32gui
 import PIL.ImageGrab
-from win32api import GetKeyState, GetAsyncKeyState
 import time
 import geniusAPI
 
@@ -16,30 +15,36 @@ class MyGUI:
         root.geometry('+%d+%d' % (root.winfo_screenwidth()-300, 30))
         root.attributes("-topmost", True)
         root.attributes("-alpha", 0.8)
-		
-        self.label = Label(root, text="Artics: ", width=15).grid(row=0, column=0)
-        self.label = Label(root, text="Song :", width=15).grid(row=1, column=0)
+
+        self.label = Label(root, text="Artist: ", width=10).grid(row=0, column=0, sticky='w', pady=5)
+        self.label = Label(root, text="Song :", width=10).grid(row=1, column=0, sticky='w')
         
-        self.artist = StringVar(root, value='RHCP')
+        self.artist = StringVar(root, value='red hot')
         self.artistBox = Entry(root, textvariable=self.artist)
         self.artistBox.focus()
-        self.artistBox.grid(row=0, column=1)
+        self.artistBox.grid(row=0, column=1, columnspan=2, sticky='ew', pady=5)
         self.artistBox.bind('<Return>', self.getLyrics)
 
         self.song = StringVar(root, value='Californication')
         self.songBox = Entry(root, textvariable = self.song)
-        self.songBox.grid(row=1, column=1)
+        self.songBox.grid(row=1, column=1, columnspan=2, sticky='ew')
         self.songBox.bind('<Return>', self.getLyrics)
 		
-        self.lyrics = Label(root, text="")
-        self.lyrics.grid(row=3, columnspan=2)
+        self.lyrics = Listbox(root)
+        self.lyrics.config(height = 20, width=0)
+        self.lyrics.grid(row=3, columnspan=3, sticky='ew', padx = 10, pady = 10)
+
+        self.scroll = Scrollbar(root, orient='vertical', command=self.lyrics.yview)
+        self.scroll.grid(row = 3, column=3, sticky='ns')
+        self.lyrics.config(yscrollcommand=self.scroll.set)
 		
         self.downloadButton = Button(root, text="Donwload", command=self.getLyrics)
-        self.downloadButton.grid(row=2, columnspan=2)
+        self.downloadButton.grid(row=2, column=1, columnspan=2, sticky='e', pady=5)
 		
     def getLyrics(self, key=''):
         #self.lyrics['text'] = downloadLyrics(self.artist.get(), self.song.get())
-        self.lyrics['text'] = geniusAPI.downloadLyrics(self.artist.get(), self.song.get())
+        lyrics = geniusAPI.downloadLyrics(self.artist.get(), self.song.get()).split("\n")
+        self.lyrics.insert(END, *lyrics)
 
 def downloadLyrics(artist, song):
     print('Artist: ' + artist + "; Song: " + song)
