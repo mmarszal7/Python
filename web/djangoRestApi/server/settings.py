@@ -40,11 +40,7 @@ INSTALLED_APPS = [
 	
     'corsheaders',
     'rest_framework',
-    'api.apps.MoviesConfig',
-	
-    #'website.apps.articles',
-    #'website.apps.authentication',
-    #'website.apps.profiles',
+    'api',
 ]
 
 MIDDLEWARE = [

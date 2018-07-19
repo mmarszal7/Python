@@ -6,8 +6,8 @@ from django.contrib.auth import authenticate
 from django.core.exceptions import ValidationError
 import json
 
-from api.utils import get_token_data, create_login_token
-from api.validators import validate_email, validate_password
+from api.utils.tokens import get_token_data, create_login_token
+from api.utils.validators import validate_email, validate_password
 
 @decorator_from_middleware(JwtAuthentication)
 def get_user_data(request):

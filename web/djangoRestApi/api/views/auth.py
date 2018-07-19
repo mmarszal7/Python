@@ -5,8 +5,8 @@ from django.middleware.csrf import get_token
 from django.core.exceptions import ValidationError
 import json
 
-from api.utils import create_login_token
-from api.validators import validate_password, validate_email
+from api.utils.tokens import create_login_token
+from api.utils.validators import validate_password, validate_email
 
 def send_csrf(request):
     # just by doing this it will send csrf token back as Set-Cookie header

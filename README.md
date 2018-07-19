@@ -47,24 +47,18 @@ jupyter notebook
 ```
 
 ## Django:
-<<<<<<< HEAD
 **Installation and first run:**
 ``` python
-conda install -c anaconda django # pip install Django
-python -m django --version
-
+pip install Django==1.11.2
 django-admin startproject mysite
 django-admin.py startapp api
-
-python manage.py migrate
+// Optional step
 python manage.py createsuperuser --email admin@example.com --username admin
-=======
-**Installation:**
-``` python
-conda install -c anaconda django
-python -m django --version
-django-admin startproject mysite
->>>>>>> 1e9230fa095fac374eff38daf0338f74cf03c108
+``` 
+**Running app:**
+``` 
+python manage.py makemigrations api
+python manage.py migrate
 python manage.py runserver
 ```
 
