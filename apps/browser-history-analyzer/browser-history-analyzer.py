@@ -35,8 +35,8 @@ def draw_graph(data):
     labels = [l[0] for l in data]
     sizes = [l[1] for l in data]
 	
-	labels.append('other')
-	sizes.append(sum(views[1] for views in data[10:]))
+    labels.append('other')
+    sizes.append(sum(views[1] for views in data[10:]))
     
     plt.pie(sizes, shadow=True, startangle=140)
     patches, texts = plt.pie(sizes, shadow=True, labels=labels, startangle=90)
