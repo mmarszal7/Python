@@ -28,6 +28,8 @@
 
 ## Machine learning
 
+- [Great summary of ML methods](https://vas3k.com/blog/machine_learning/?fbclid=IwAR1zmngzuf7RHFrKLGfv7rIeVSNdAOrtOmQgrgYCFN57Om-CPQoqTyQ4BdY) - e.g. quote about NNs: `We have a thousand-layer network, dozens of video cards, but still no idea where to use it. Let's generate cat pics!"`
+
 - keras-model-export - example of exporting keras model to Tensorflow format
 
 - **salesman** - genetic algorithm solution for [Travelling salesman problem](https://en.wikipedia.org/wiki/Travelling_salesman_problem)
