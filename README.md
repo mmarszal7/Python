@@ -8,6 +8,16 @@
 - **face-detector** - using pre trained ML model to detect face in webcam
   <img src="docs/.png" />
 
+- **flashcard converter** - converts files or given words into flashcard friendly format
+    ```
+    perro               Spanish     English
+    dog                 perro       dog
+    gato        =>      ratón       mouse
+    cat                 gato        cat
+    ratón
+    mouse
+    ```
+
 - **browser-history-analyzer** - app showing pie chart with data from your Chrome history :)
   <img src="docs/browser_history.png" />
 
