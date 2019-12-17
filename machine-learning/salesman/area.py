@@ -63,7 +63,7 @@ class Area():
 			writer = csv.writer(f)
 			writer.writerows(self.cords)
 			
-	def plotPath(self, solutionToPlot):
+	def plotPath(self, solutionToPlot, saveNumber = -1):
 		area = np.empty([self.cords.shape[0], self.cords.shape[1]+1])
 		area[:,0:2] = self.cords
 		area[:,2] = self.sizes
@@ -73,14 +73,18 @@ class Area():
 	
 		ax.scatter(area[:,0], area[:,1], area[:,2]*10, 'pink')
 		for i, txt in enumerate(area[:,2]):
-			ax.annotate(i+1, (area[:,0][i],area[:,1][i]), horizontalalignment='r', fontsize=16, fontweight='bold') # str = str(area[:,2][i])
+			ax.annotate(i+1, (area[:,0][i],area[:,1][i]), horizontalalignment='right', fontsize=16, fontweight='bold') # str = str(area[:,2][i])
 		for path in range(0, area[:,1].shape[0]):
 			ax.plot([area[solutionToPlot[path],0], area[solutionToPlot[path+1],0]], [area[solutionToPlot[path],1], area[solutionToPlot[path+1],1]], 'k-')
 	
 		plt.axis([0, 1000, 0, 1000])
 		plt.title('Salesman Area')
 		plt.tight_layout()
-		plt.show()
+		
+		if(saveNumber != -1):
+			plt.savefig('images/generation{}.png'.format(saveNumber))
+		else:
+			plt.show()
 
 	def toString(self):
 		print("{} \n\n {} \n\n {}".format(self.sizes, self.cords, self.distances))

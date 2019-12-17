@@ -49,8 +49,10 @@ class GeneticAlgorithm():
 				history.append(max(fitness))
 				elite = Population[0,:]
 			else: history.append(history[-1])
-	
+			
 			print('Generation: {}, Solution: {}'.format(generation, history[-1]))
+			self.area.plotPath(Population[0,:], generation)
+			
 			if(len(history) > self.progress and history[-1] == history[-self.progress]):
 				self.area.plotPath(Population[0,:])
 				self.plotConvCurve(history)
